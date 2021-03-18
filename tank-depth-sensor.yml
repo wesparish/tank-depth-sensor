@@ -60,3 +60,14 @@ sensor:
       - calibrate_linear:
           - 29.5 -> 0.0
           - 8.50 -> 100.0
+
+  - platform: dht
+    pin: D1
+    temperature:
+      name: "Indoor Garden Temperature"
+      filters:
+      - lambda: return x * (9.0/5.0) + 32.0;
+      unit_of_measurement: "°F"
+    humidity:
+      name: "Indoor Garden Humidity"
+    update_interval: 60s
